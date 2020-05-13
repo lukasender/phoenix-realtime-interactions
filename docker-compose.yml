@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  phoenix-realtime-interactions:
+    build: .
+    image: lumannnn/phoenix-realtime-interactions:dev
+    ports:
+      - "4000:4000"
+    environment:
+      # dev settings, for testing the docker-image and built before deploying it
+      RT_LOGGER_LEVEL: 'info'
+      RT_ENDPOINT_SCHEME: 'http'
+      RT_ENDPOINT_HOSTNAME: 'localhost'
+      RT_ENDPOINT_PORT: '4000'
+      RT_HOSTNAME: 'localhost'
+      RT_PORT: 4000
+      # initially created via 'mix phx.gen.secret')
+      RT_SECRET_KEY_BASE: '7nq+8In9ByhbmEflE3UB820FGaTn/qA3zliF6JoGz0pjOL9OSfQM5/RpTIsAkWoU'

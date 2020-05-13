@@ -1,0 +1,81 @@
+<div class="container mx-auto px-6">
+  <section class="my-6 text-center">
+    <h1 class="text-4xl py-6">Interactions</h1>
+    <p>The world is driven by human interactions.</p>
+    <p class="mt-4 text-sm text-gray-600">Wait for others to visit this page as well. Or share this page and let them join you :)</p>
+  </section>
+
+  <section class="my-4 text-center">
+    <div class="m-2 p-2">
+      <div class="m-4">
+        <%= live_component @socket, Button, action: "likes", value: @likes, text: "👏" %>
+        <%= live_component @socket, Button, action: "hearts", value: @hearts, text: "❤️" %>
+        <%= live_component @socket, Button, action: "smiles", value: @smiles, text: "😊" %>
+        <%= live_component @socket, Button, action: "kisses", value: @kisses, text: "😘" %>
+        <%= live_component @socket, Button, action: "parties", value: @parties, text: "🥳" %>
+        <%= live_component @socket, Button, action: "beers", value: @beers, text: "🍻" %>
+      </div>
+
+      <div class="m-4 my-12">
+        <h3 class="text-xl mt-4">Other visitors right now</h3>
+        <div class="text-xl">
+          <p>
+            <%=
+              Enum.map(1..@presence,
+                fn _ ->
+                  ~E"""
+                  <span>🙂</span>
+                  """
+                end
+              )
+            %>
+          </p>
+        </div>
+        <p class="text-sm text-gray-600">
+          <%= @presence - 1 %> other
+          <%= if @presence - 1 == 1 do %>
+            visitor
+          <% else %>
+            visitors
+          <% end %>
+          on this page at this very moment!
+        </p>
+      </div>
+
+      <div class="m-4 mt-12">
+        <h3 class="text-xl">
+          <span class="rounded-lg px-3 py-2"><%= @views %></span> page visits!
+        </h3>
+
+        <div class="my-12">
+          <p>Humans need social interactions.</p>
+          <p>We're Social Distancing.</p>
+          <p>But we can still interact with each other!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-12 text-center">
+    <h2 class="text-2xl text-gray-800">Why all this?</h2>
+    <div class="text-gray-700">
+      <p>There's no real purpose behind all this.</p>
+      <p>It's actually just a technical experiment.</p>
+      <p>Something to tinker around with.</p>
+    </div>
+
+    <h2 class="text-2xl text-gray-800 mt-6">How does it work?</h2>
+    <div class="text-gray-700">
+      <p>
+        All this is powered by <a class="text-blue-500" href="https://elixir-lang.org/">Elixir</a> and <a class="text-blue-500" href="https://phoenixframework.org/">Phoenix</a>.
+      </p>
+      <p>Its only a <a class="text-blue-500" href="https://github.com/lukasender/phoenix-realtime-interactions">couple lines of code</a>.</p>
+      <p>Just one server.</p>
+      <p>No database.</p>
+    </div>
+    <p class="text-gray-500 text-sm">(Yep, if the server goes down, all its state is lost.)</p>
+  </section>
+  <section class="my-12 text-center">
+    <a class="text-blue-500" href="https://www.twitter.com/lukasender">@lukasender</a>
+  </section>
+</div>
