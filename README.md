@@ -34,6 +34,10 @@ Build a new release, run:
 docker-compose build
 ```
 
+## How does it look?
+
+![How does it look?](./interactions.lukasender.at.png "How does it look?")
+
 
 ## Learn more
 
